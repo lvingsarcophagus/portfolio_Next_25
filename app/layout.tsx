@@ -14,6 +14,9 @@ const pressStart2P = Press_Start_2P({
 export const metadata: Metadata = {
   title: "Nayan Joshy - Linux System Administrator",
   description: "Portfolio of Nayan Joshy - Linux System Administrator and Information Systems Student",
+  icons: {
+    icon: '/webico.ico',
+  },
 }
 
 export default function RootLayout({
