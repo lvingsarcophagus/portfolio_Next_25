@@ -23,7 +23,7 @@ export default function Projects() {
     },
     {
       title: "Docker Project",
-      description: "Containerized application development and deployment",
+      description: "Containerized application development and deployment project",
       icon: Container, // Changed from Docker to Container
       technologies: ["Docker", "Python", "Containerization"],
       github: "https://github.com/lvingsarcophagus/Docker-proj-VU"
@@ -44,13 +44,13 @@ export default function Projects() {
               viewport={{ once: true }}
             >
               <Card className="h-full pixel-corners hover:shadow-lg transition-shadow">
-                <CardHeader>
+                <CardHeader className="p-6">
                   <div className="flex items-center gap-2 mb-2">
                     <project.icon className="w-6 h-6 text-primary" />
                     <CardTitle className="font-press-start text-lg">{project.title}</CardTitle>
                   </div>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="p-6 pt-0">
                   <p className="mb-4 text-muted-foreground">{project.description}</p>
                   <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech) => (
