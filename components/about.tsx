@@ -17,9 +17,8 @@ export default function About() {
         <Card className="pixel-corners">
           <CardContent className="p-6 space-y-4">
             <p className="text-lg leading-relaxed">
-              Detail-oriented Information Systems and Cyber Security student with 3+ years of hands-on Linux system
-              administration experience. Proven expertise in system troubleshooting, automation, and infrastructure
-              maintenance.
+            Detail-oriented Information Systems and Cyber Security student with hands-on Linux system administration experience gained through project work and course assignments. Proven expertise in system troubleshooting, automation, and infrastructure maintenance.
+
             </p>
             <p className="text-lg leading-relaxed">
               Passionate about monitoring-driven operations and implementing scalable solutions. Demonstrated ability to

@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Terminal, Code2, Shield } from "lucide-react"
+import { Terminal, Code2, Shield } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import { useState, useEffect } from "react"
 
@@ -16,27 +16,47 @@ export default function Hero() {
     return () => clearInterval(interval)
   }, [])
 
+  // Array of colors for the cubes
+  const colors = [
+    "from-blue-500/30 to-cyan-500/30",
+    "from-purple-500/30 to-pink-500/30",
+    "from-orange-500/30 to-red-500/30",
+    "from-green-500/30 to-emerald-500/30",
+    "from-indigo-500/30 to-violet-500/30",
+    "from-rose-500/30 to-orange-500/30",
+    "from-teal-500/30 to-cyan-500/30",
+    "from-fuchsia-500/30 to-pink-500/30"
+  ]
+
   return (
     <section className="min-h-screen flex items-center justify-center px-4 relative overflow-hidden">
       {/* Background Grid Animation */}
-      <div className="absolute inset-0 grid grid-cols-4 md:grid-cols-8 grid-rows-8 gap-1 opacity-5">
-        {Array.from({ length: 64 }).map((_, i) => (
-          <motion.div
-            key={i}
-            className="bg-primary"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{
-              duration: 0.5,
-              delay: i * 0.02,
-              repeat: Number.POSITIVE_INFINITY,
-              repeatType: "reverse",
-            }}
-          />
-        ))}
+      <div className="absolute inset-0 grid grid-cols-4 md:grid-cols-8 grid-rows-8 gap-1">
+        {Array.from({ length: 64 }).map((_, i) => {
+          // Randomly select a color for each cube
+          const colorIndex = Math.floor(Math.random() * colors.length)
+          return (
+            <motion.div
+              key={i}
+              className={`bg-gradient-to-br ${colors[colorIndex]} rounded-sm`}
+              initial={{ opacity: 0 }}
+              animate={{ 
+                opacity: [0.1, 0.5, 0.1],
+                scale: [1, 1.1, 1],
+              }}
+              transition={{
+                duration: Math.random() * 2 + 2, // Random duration between 2-4s
+                delay: i * 0.02,
+                repeat: Infinity,
+                repeatType: "reverse",
+              }}
+            />
+          )
+        })}
       </div>
 
-      <div className="text-center space-y-8 relative">
+      {/* Content */}
+      <div className="text-center space-y-8 relative z-10">
         <div className="flex justify-center gap-4 mb-8">
           <motion.div
             initial={{ scale: 0, rotate: -180 }}
@@ -68,7 +88,7 @@ export default function Hero() {
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.3 }}
-          className="space-y-4"
+          className="space-y-4 backdrop-blur-sm p-6 rounded-lg bg-background/10"
         >
           <h1 className="text-2xl md:text-4xl lg:text-5xl font-press-start leading-tight">
             Nayan Joshy
@@ -102,21 +122,22 @@ export default function Hero() {
         >
           <Button
             variant="default"
-            className="pixel-corners font-press-start text-sm"
+            className="pixel-corners font-press-start text-sm relative group overflow-hidden"
             onClick={() => document.querySelector("#about")?.scrollIntoView({ behavior: "smooth" })}
           >
-            About Me
+            <span className="relative z-10">About Me</span>
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/50 to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </Button>
           <Button
             variant="secondary"
-            className="pixel-corners font-press-start text-sm"
+            className="pixel-corners font-press-start text-sm relative group overflow-hidden"
             onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
           >
-            Contact
+            <span className="relative z-10">Contact</span>
+            <div className="absolute inset-0 bg-gradient-to-r from-secondary/50 to-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </Button>
         </motion.div>
       </div>
     </section>
   )
 }
-
