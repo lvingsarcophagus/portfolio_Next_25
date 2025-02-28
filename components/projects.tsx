@@ -47,12 +47,13 @@ export default function Projects() {
       category: "linux"
     },
     {
-      title: "Ubuntu Home Server",
-      description: "Personal server setup with networking, security, and monitoring",
+      title: "Ubuntu Docker Server",
+      description: "Complete server setup with Docker, Nginx, and automated deployment pipelines",
       icon: Server,
-      technologies: ["Ubuntu", "Networking", "Security"],
-      github: "https://github.com/lvingsarcophagus",
-      category: "linux"
+      technologies: ["Ubuntu", "Docker", "Nginx", "CI/CD"],
+      github: "https://github.com/lvingsarcophagus/ubuntu-docker-server",
+      category: "linux", // This will be handled specially for multiple categories
+      additionalCategories: ["containerization"]
     },
     {
       title: "Azure VM Automation",
@@ -72,9 +73,10 @@ export default function Projects() {
     }
   ]
 
+  // Modified filtering logic to handle multiple categories
   const filteredProjects = filter === "all" 
     ? projects 
-    : projects.filter(p => p.category === filter)
+    : projects.filter(p => p.category === filter || p.additionalCategories?.includes(filter));
 
   return (
     <section id="projects" className="min-h-screen flex items-center justify-center px-4 py-16">
