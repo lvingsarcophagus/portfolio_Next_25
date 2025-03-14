@@ -17,7 +17,17 @@ interface Project {
 }
 
 const projects: Project[] = [
-  // Your projects array here
+  {
+    id: "modern-portfolio",
+    title: "Modern Portfolio",
+    description: "A modern portfolio website built with Next.js and Tailwind CSS.",
+    imageUrl: "/images/modern-portfolio.png", // Replace with your image path
+    technologies: ["Next.js", "Tailwind CSS", "Framer Motion"],
+    projectUrl: "https://github.com/lvingsarcophagus/portfolio_Next_25", // Set project URL to GitHub repo
+    githubUrl: "https://github.com/lvingsarcophagus/portfolio_Next_25",
+    category: "Web Development",
+  },
+  // Your other projects array here
 ];
 
 // Get unique categories from projects
