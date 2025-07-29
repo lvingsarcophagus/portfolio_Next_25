@@ -1,3 +1,5 @@
+const { fontFamily } = require("tailwindcss/defaultTheme")
+
 module.exports = {
   darkMode: ["class"],
   content: [
@@ -17,7 +19,7 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        "press-start": ["var(--font-press-start)"],
+        sans: ["var(--font-sans)", ...fontFamily.sans],
       },
       colors: {
         border: "hsl(var(--border))",
